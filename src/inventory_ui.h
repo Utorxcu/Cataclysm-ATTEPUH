@@ -419,9 +419,6 @@ class inventory_column
         get_entries_t get_entries( const ffilter_t &filter_func,
                                    bool include_hidden = false ) const;
 
-        // orders the child entries in this column to be under their parent
-        void order_by_parent();
-
         inventory_entry *find_by_invlet( int invlet ) const;
         inventory_entry *find_by_location( item_location const &loc, bool hidden = false ) const;
 
@@ -1192,7 +1189,7 @@ class pickup_selector : public inventory_multiselector
         bool wield( int &count );
         bool wear();
         void remove_from_to_use( item_location &it );
-        void reopen_menu();
+        void reopen_menu( const item_location &next_item );
         const std::set<tripoint_bub_ms> where;
 };
 
